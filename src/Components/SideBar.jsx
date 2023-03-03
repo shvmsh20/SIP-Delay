@@ -3,6 +3,6 @@ import '../Media/CSS/App.css';
 
 export default function SideBar() {
   return (
-    <div className='side-bar'>SideBar</div>
+    <div className='side-bar'>This is SideBar</div>
   )
 }
