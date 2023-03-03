@@ -1,12 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import './Media/CSS/App.css';
+import Main from './Components/Main'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    < div className='App'>
+      {/* <header className="App-header"> */}
         <h1>SIP Delay template</h1>
-      </header>
+        <Main/>
+      {/* </header> */}
     </div>
   );
 }

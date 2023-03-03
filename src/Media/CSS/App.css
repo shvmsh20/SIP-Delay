@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  font-family: sans-serif;
+  color: white;
+}
+
+
+.side-bar{
+  background-color: #526FE4;
+  color:white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 125px;
+  height: 100%;
+  padding: 20px 0;
+  font-family: sans-serif;
+
+}
+
+.graph-style{
+  /* color: #FF5C00,   Orange color */
+  background-color: aliceblue;
+  color: #35AE86;
+  font-family: sans-serif;
+
+  /* color:#526FE4,  Blue color */
+
+}
+
+.calculator-style{
+  background-color: azure;
+  color:black;
+  font-family: sans-serif;
+
+
+}
+
+.Main{
+  background-color: whitesmoke;
+}
