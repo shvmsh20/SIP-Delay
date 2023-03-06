@@ -1,51 +1,119 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+*{
+  box-sizing: border-box;
   font-family: sans-serif;
-  color: white;
+  margin: 0;
+  padding: 0;
 }
 
+.screen{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+}
 
 .side-bar{
+  flex-basis: 20%;
   background-color: #526FE4;
-  color:white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 125px;
-  height: 100%;
-  padding: 20px 0;
+}
+
+.main{
+  flex-basis: 80%;
+  background-color: #F1F5FA;
+}
+
+.calculator{
+  background-color: #fff;
+  padding: 10px;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+}
+
+.input{
+  flex-basis: 50%;
+  border: 1px solid #EAEBED;
+  margin: 10px
+}
+
+.graph{
+  flex-basis: 50%;
+  border: 1px solid #EAEBED;
+  margin: 10px
+}
+
+.heading{
+  font-weight: 500;
+  margin: 10px;
+}
+
+.info{
+  font-weight: 400;
+  margin: 10px;
+}
+
+.back{
+  font-weight: 400;
+  margin: 10px;
+}
+
+.slider {
+  margin: 10px;
+  width:400px;
+  height:40px;
+  padding:10px;
+  background:#fcfcfc;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+ }
+ .slider p {
+  font-size:16px;
+  font-weight:600;
+  padding-left:30px;
+ }
+ .slider input[type="range"] {
+  -webkit-appearance:none !important;
+  width:300px;
+  height:8px;
+  background:#D3DFFE;
+  border:none;
+  outline:none;
+ }
+ .slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance:none !important;
+  width:10px;
+  height:10px;
+  background:#5979FA;
+  border:2px solid #5979FA;
+  border-radius:50%;
+  cursor:pointer;
+}
+.totalamount{
+  color: #506EE4;
+  font-weight: bold;
+  font-family: sans-serif;
+
+
+}
+.potentialamount{
+  color: #FF5F1B;
+  font-weight: bold;
   font-family: sans-serif;
 
 }
-
-.graph-style{
-  /* color: #FF5C00,   Orange color */
-  background-color: aliceblue;
-  color: #35AE86;
+.delay{
+  color:#06A473;
+  font-weight: bold;
   font-family: sans-serif;
-
-  /* color:#526FE4,  Blue color */
-
 }
 
-.calculator-style{
-  background-color: azure;
-  color:black;
-  font-family: sans-serif;
-
-
+.bar{
+  background-color:#5E73EB;
 }
 
-.Main{
-  background-color: whitesmoke;
+.graph-text{
+  align-items: center;
 }
