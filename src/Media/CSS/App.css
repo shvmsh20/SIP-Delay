@@ -67,6 +67,7 @@
     border-radius:20px;
     display:flex;
     align-items:center;
+    display: block;
    }
    .slider p {
     font-size:16px;
@@ -74,7 +75,7 @@
     padding-left:30px;
    }
    .slider input[type="range"] {
-    -webkit-appearance:none !important;
+    -webkit-appearance:none;
     width:300px;
     height:8px;
     background:#D3DFFE;
