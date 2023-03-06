@@ -4,7 +4,7 @@ import Slider from './Slider'
 function Input() {
   return (
     <div className='input'>
-    <Slider  />
+
     <Slider />
     <Slider />
     <Slider />
