@@ -1,12 +1,11 @@
 import './Media/CSS/App.css';
-import Main from './Components/Main'
+import Screen from "./Components/Screen"
 
 function App() {
   return (
     < div className='App'>
-     
-        <h1>SIP Delay template</h1>
-        <Main/>
+
+        <Screen/>
       
     </div>
   );
