@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {ResponsiveContainer,BarChart,Bar,XAxis,YAxis}from 'recharts'
 
 
@@ -35,6 +36,8 @@ return (
     </ResponsiveContainer>
     </div>
   )
+
+
 
 }
 
