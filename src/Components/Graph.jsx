@@ -27,7 +27,7 @@ return (
       <span className='totalamount'>₹ 8,56,981</span>
       <br/>That's <span className='potentialamount'>₹ 1,24,369</span> as potential capital gains on your investment of <br/>
       <span className='delay'>₹ 7,32,612</span></p>
-    <ResponsiveContainer width="50%" aspect={1}>
+    <ResponsiveContainer width="80%" aspect={1}>
         <BarChart data = {Array} width={200} height = {200}>
             <XAxis dataKey="name"/>
             <YAxis />
