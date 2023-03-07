@@ -1,36 +1,28 @@
 
-import React from 'react'
-
-function handleChange(e){
-    document.getElementById("rangeValue").innerText = document.getElementById("slider-inp").value;
-    console.log(e.target.value);
-    // document.getElementById("slider-inp").value = 
-}
-function Slider() {
-  return (
-    <div className='slider'>
-         <input id="slider-inp" type="range" min="0" max="100" step="1"
-         value="10"  onInput={()=>handleChange()} />
-        <p id="rangeValue">0</p>
-
 import React, {useState} from 'react'
 
 
-function Slider() {
+function Slider(props) {
 
-  const [val, setVal] = useState(0);
+  const midVal = (parseInt(props.mn)+parseInt(props.mx))/2;
+  const [val, setVal] = useState(midVal);
 
   function handleChange(){
-    setVal(document.getElementById("slider-inp").value);
+
+    setVal(document.getElementById(props.field).value);
+    //document.getElementById(props.field).value = val;
     
-    //document.getElementById("rangeValue").innerText = val;
-    document.getElementById("slider-inp").value = val;
 }
   return (
     <div className='slider'>
-    <input id="slider-inp" type="range" min="0" max="100" 
-         value={val} onInput={()=>handleChange()} />
-    <svg width="80%" height="24">
+    <div className='container-label'>
+    <h5 className='slider-heading'>{props.title}</h5>
+    <button type="number" className='display-btn'> {val} </button>
+    </div>
+     
+    <input id = {props.field} type="range" min={props.mn} max={props.mx} value={val}
+          onInput={()=>handleChange()} />   
+    <svg width="100%" height="24">
               <line
                 x1="4"
                 y1="0"
@@ -41,8 +33,8 @@ function Slider() {
                 strokeDasharray="1 20"
               />
             </svg>
-  
-
+            <br/>
+    
     </div>
   )
 }

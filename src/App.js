@@ -3,7 +3,7 @@ import Screen from "./Components/Screen"
 
 function App() {
   return (
-    < div className='App'>
+    <div className='App'>
 
         <Screen/>
       
