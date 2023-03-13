@@ -10,28 +10,28 @@ import { styled } from '@mui/material/styles';
 
 const miArray = [
     {
-      value: 50000,
-      label: '50000',
+      value: 500,
+      label: '500',
     },
     {
-      value: 240000,
-      label: '240000',
+      value: 2400,
+      label: '2400',
     },
     {
-      value: 430000,
-      label: '430000',
+      value: 4300,
+      label: '4300',
     },
     {
-      value: 620000,
-      label: '620000',
+      value: 6200,
+      label: '6200',
     },
     {
-      value: 810000,
-      label: '810000',
+      value: 8100,
+      label: '8100',
     },
     {
-      value: 1000000,
-      label: '1000000',
+      value: 10000,
+      label: '10000',
     },
   ];
 

@@ -3,7 +3,7 @@ import InputArea from './InputArea';
 import Graph from "./Graph"
 
 function Calculator() {
-  const [mi, setMi] = useState(620000);
+  const [mi, setMi] = useState(6200);
   function changeMi(val){
     setMi(val);
   }
