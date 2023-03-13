@@ -1,5 +1,4 @@
 *{
-
   box-sizing: border-box;
   font-family: sans-serif;
   margin: 0;
@@ -13,7 +12,6 @@
 }
 
 .side-bar{
-
   flex-basis: 20%;
   background-color: #526FE4;
 }
@@ -88,7 +86,7 @@
 }
 
 .bar-graph{
-  margin: 30px 0px 0px 5px;
+  margin: 20px;
 }
 
 .slider-area{
@@ -99,5 +97,10 @@
 .demo{
   display: flex;
   justify-content: space-between;
+}
+
+.heading{
+  font-weight: 300;
+  margin-left: 10px;
 }
 
