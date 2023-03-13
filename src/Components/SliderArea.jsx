@@ -34,6 +34,155 @@ const miArray = [
       label: '1000000',
     },
   ];
+
+
+  const ipArray = [
+    {
+      value: 1,
+      label: '1',
+    },
+    {
+      value: 4,
+      label: '4',
+    },
+    {
+      value: 7,
+      label: '7',
+    },
+    {
+      value: 10,
+      label: '10',
+    },
+    {
+      value: 13,
+      label: '13',
+    },
+    {
+      value: 15,
+      label: '15',
+    },
+    {
+      value: 18,
+      label: '18',
+    },
+    {
+      value: 21,
+      label: '21',
+    },
+    {
+      value: 24,
+      label: '24',
+    },
+    {
+      value: 27,
+      label: '27',
+    },
+    {
+      value: 30,
+      label: '30',
+    },
+  ];
+
+  const errArray = [
+    {
+      value: 1,
+      label: '1',
+    },
+    {
+      value: 3.9,
+      label: '3.9',
+    },
+    {
+      value: 6.8,
+      label: '6.8',
+    },
+    {
+      value: 9.7,
+      label: '9.7',
+    },
+    {
+      value: 12.6,
+      label: '12.6',
+    },
+    {
+      value: 15.5,
+      label: '15.5',
+    },
+    {
+      value: 18.4,
+      label: '18.4',
+    },
+    {
+      value: 21.3,
+      label: '21.3',
+    },
+    {
+      value: 24.2,
+      label: '24.2',
+    },
+    {
+      value: 27.1,
+      label: '27.1',
+    },
+    {
+      value: 30,
+      label: '30',
+    },
+  ];
+  
+  const delayArray = [
+    {
+      value: 1,
+      label: '1',
+    },
+    {
+      value: 13,
+      label: '13',
+    },
+    {
+      value: 25,
+      label: '25',
+    },
+    {
+      value: 37,
+      label: '37',
+    },
+    {
+      value: 49,
+      label: '49',
+    },
+    {
+      value: 61,
+      label: '61',
+    },
+    {
+      value: 72,
+      label: '72',
+    },
+    {
+      value: 84,
+      label: '84',
+    },
+    {
+      value: 96,
+      label: '96',
+    },
+    {
+      value: 108,
+      label: '108',
+    },
+    {
+      value: 120,
+      label: '120',
+    },
+  ];
+  
+
+const labelArr = [miArray, ipArray, errArray, delayArray];  
+
+const titleArr = ["Monthly Investment (Rs.)", "Investment Period (in years)", 
+"Expected Rate of Return (%p.a)", "Delay in Staring SIP (in months)"];
+
   
   function valuetext(value) {
     return `${value}`;
@@ -44,8 +193,7 @@ const miArray = [
   `;
 
   
-function SliderArea(){
-    const [mivalue, setValue] = React.useState(620000);
+function SliderArea({index, mn, mx, value, setValue}){
 
     const handleSliderChange = (event, newValue) => {
         setValue(newValue);
@@ -54,6 +202,7 @@ function SliderArea(){
     const handleInputChange = (event) => {
         setValue(event.target.value === '' ? '' : Number(event.target.value));
     };
+
  
   return (
 
@@ -61,25 +210,26 @@ function SliderArea(){
         <Box sx={{ width: 500 }}>
     
       
-            <Grid container spacing={25} alignItems="center">
-
+            <Grid className="demo" container>
                 <Grid item>
-                    <Typography id="input-slider" gutterBottom>
-                    Monthly Investment (Rs.)
+                    <Typography gutterBottom>
+                    {titleArr[index]}
                     </Typography>
                 </Grid>
 
                 <Grid item>
-                    <Input2  
-                        value={mivalue}
+                
+                <Input2  
+                        value={value}
                         size="small"
                         onChange={handleInputChange}
                         inputProps={{
                             step: 1,
-                            min: 50000,
-                            max: 10000000,
+                            min: mn,
+                            max: mx,
                         }}
                         />
+                    
                 </Grid>
                 
             </Grid>
@@ -90,13 +240,13 @@ function SliderArea(){
                     <Slider
 
                     aria-label="Custom marks"
-                    defaultValue={620000}
+                    defaultValue={mn}
                     getAriaValueText={valuetext}
-                    min={50000}
-                    max={1000000}
-                    marks={miArray}
+                    min={mn}
+                    max={mx}
+                    marks={labelArr[index]}
                     
-                    value={typeof mivalue === 'number' ? mivalue : 0}
+                    value={typeof value === 'number' ? value : 0}
                     onChange={handleSliderChange}
                     aria-labelledby="input-slider"
                     />

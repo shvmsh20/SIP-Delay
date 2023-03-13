@@ -22,6 +22,9 @@ function Graph(props) {
   },
 ]
 console.log("MI ",props.mi);
+console.log("IP ",props.ip);
+console.log("ROR ",props.ror);
+console.log("Delay ",props.delay);
 return (
     <div className='graph'>
       <p className='graph-text'>After 5 years, you will have<br/>
