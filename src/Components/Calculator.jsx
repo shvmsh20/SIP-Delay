@@ -1,8 +1,12 @@
-import React from 'react'
-import Input from './Input';
+import React, {useState} from 'react'
+import InputArea from './InputArea';
 import Graph from "./Graph"
 
 function Calculator() {
+  const [mi, setMi] = useState(0);
+  function changeMi(val){
+    setMi(val);
+  }
   return (
     <div className='calculator'>
 
@@ -12,8 +16,8 @@ function Calculator() {
       <h5 className='info'>It tells you how much wealth you can create by
       making monthly investment</h5>
       <div className='container'>
-        <Input />
-        <Graph />
+        <InputArea changeMi={changeMi}/>
+        <Graph mi={mi}/>
       </div>
       
     </div>
