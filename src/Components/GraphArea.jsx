@@ -2,55 +2,56 @@ import React from 'react'
 import {ResponsiveContainer,BarChart,Bar,XAxis,YAxis, Label, Tooltip} from 'recharts'
 
 
-function findAmountWithoutDelay(mi, ip, ror){
-  let Months = (ip)*12;
-  let Rate = (ror - 0)/12;
+function findAmountWithoutDelay(monthlyInvestment, investmentPeriod, rateOfReturn){
+  let Months = (investmentPeriod)*12;
+  let Rate = (rateOfReturn - 0)/12;
   let sipCumulation = 0;
   let sipGrowthResult = 0;
 
   for(let i=1; i<=Months; i++)
   {
-    sipCumulation = mi*(Math.pow((1+Rate/100),i));
+    sipCumulation = monthlyInvestment*(Math.pow((1+Rate/100),i));
     sipGrowthResult += sipCumulation;
   }
   return sipGrowthResult;
 }
 
-function findAmountWithDelay(mi, ip, ror, delay){
-  let Months = (ip)*12 - delay;
-  let Rate = (ror - 0)/12;
+function findAmountWithDelay(monthlyInvestment, investmentPeriod, rateOfReturn, delay){
+  let Months = (investmentPeriod)*12 - delay;
+  let Rate = (rateOfReturn - 0)/12;
   let sipCumulation = 0;
   let sipGrowthResult = 0;
 
   for(let i=1; i<=Months; i++)
   {
-    sipCumulation = mi*(Math.pow((1+Rate/100),i));
+    sipCumulation = monthlyInvestment*(Math.pow((1+Rate/100),i));
     sipGrowthResult += sipCumulation;
   }
   return sipGrowthResult;
 }
 
-function Graph({mi, ip, ror, delay}) {
-  
+function Graph({monthlyInvestment, investmentPeriod, rateOfReturn, delay}) {
 
-let Result1 = findAmountWithoutDelay(mi, ip, ror).toFixed(0);
-let Result2 = findAmountWithDelay(mi, ip, ror, delay).toFixed(0);
-let NotionalLoss = Result1-Result2;
+
+
+let amountWithoutDelay = findAmountWithoutDelay(monthlyInvestment, investmentPeriod, rateOfReturn).toFixed(0);
+let amountWithDelay = findAmountWithDelay(monthlyInvestment, investmentPeriod, rateOfReturn, delay).toFixed(0);
+let notionalLoss = amountWithoutDelay-amountWithDelay;
 
 
   const Array = [
     {
       name:"Start Today",
-      Amount: Result1,
+      Amount: amountWithoutDelay,
       
   },
   {
       name:"Delayed Start",
-      Amount: Result2,
+      Amount: amountWithDelay,
   },
   {
       name:"Notional Loss",
-      Amount: NotionalLoss,
+      Amount: notionalLoss,
       fill: '#DF2E38'
 
   },
@@ -61,10 +62,10 @@ function toIndianRupees(sum){
 }
 return (
     <div className='graphArea'>
-      <p className='graph-text'>After {ip} years, you will have<br/>
-      <span className='totalamount'>₹ {toIndianRupees(Result2)}</span>
-      <br/>That's <span className='potentialamount'>₹ {toIndianRupees(Result1)}</span> as potential capital gains <br/> on your investment of 
-      <span className='delay'> ₹ {toIndianRupees(mi)}</span></p>
+      <p className='graph-text'>After {investmentPeriod} years, you will have<br/>
+      <span className='totalamount'>₹ {toIndianRupees(amountWithDelay)}</span>
+      <br/>That's <span className='potentialamount'>₹ {toIndianRupees(amountWithoutDelay)}</span> as potential capital gains <br/> on your investment of 
+      <span className='delay'> ₹ {toIndianRupees(monthlyInvestment)}</span></p>
       
     <ResponsiveContainer height="40%" width="80%" aspect={1.2} >
      
@@ -73,7 +74,7 @@ return (
             <YAxis width={110}>
             <Label angle={270} position='left' offset={-1}
             value="Amount (Rs.)"
-            style={{ textAnchor: 'middle', fontSize: '100%', fill: 'rgba(0, 0, 0, 0.56)' }}></Label>
+            style={{ textAnchor: 'monthlyInvestmentddle', fontSize: '100%', fill: 'rgba(0, 0, 0, 0.56)' }}></Label>
             </YAxis>
             <Tooltip cursor={false}  />
             <Bar dataKey="Amount" fill = '#5E73EB' />
