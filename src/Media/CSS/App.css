@@ -104,7 +104,7 @@
 }
 
 .slider-area{
-  margin: 40px 0px;
+  margin: 25px 0px;
   margin-left: 30px;
 }
 
@@ -123,4 +123,13 @@
 .heading{
   font-weight: 300;
   margin-left: 10px;
+}
+
+.err-field{
+  display: none;
+  color: white;
+  background-color: #DF2E38;
+  padding: 3px;
+  font-size: 14px;
+  margin: 2px 0px;
 }
