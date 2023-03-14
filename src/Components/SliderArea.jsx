@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
@@ -195,22 +195,60 @@ const titleArr = ["Monthly Investment (Rs.)", "Investment Period (in years)",
   
 function SliderArea({index, mn, mx, steps, value, setValue}){
 
+  const [inputVal, setInputVal] = useState(mn);
+
     const handleSliderChange = (event, newValue) => {
         setValue(newValue);
+        setInputVal(newValue);
     };
 
     const handleInputChange = (event) => {
-      setValue(event.target.value === '' ? '' : Number(event.target.value));
+      
+      const val = event.target.value;
+      
+      if(val.startsWith('-')){
+        setInputVal(val);
+        const errField = document.getElementsByClassName("err-field")[index];
+        errField.style.display = "block";
+        setTimeout(()=>{
+          errField.style.display = "none";
+        }, 1500)
+        return;
+      }
+      if(val<mn){
+        setInputVal(val);
+        return;
+      }
+      setInputVal(val);
+      setValue(val === '' ? '' : Number(val));
+      
     };
 
-    const handleBlur = () => {
-      if (value < mn) {
-        setValue(mn)
-      } else if (value > mx) {
-        setValue(mx);
+    const handleBlur = (event) => {
+
+      let val = event.target.value
+
+      if(val==='-'){
+        setValue(mn);
+        setInputVal(mn);
+        return;
       }
+
+      val = Number(val);
+      
+      if (val < mn) {
+        setValue(mn);
+        setInputVal(mn);
+      } else if (val > mx) {
+        setValue(mx);
+        setInputVal(mx);
+      }
+      
     }
 
+    
+
+ 
   return (
 
     <div className='slider-area'>
@@ -227,25 +265,22 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
                   <Grid item className='grid-item2'>
                     
                     <Input2  
-                            value={value}
+                            value={inputVal}
                             size="small"
                             onBlur={handleBlur}
                             onChange={handleInputChange}
                             inputProps={{
-                                type: 'number',
-                                step: 1,
+                                step: steps,
                                 min: mn,
                                 max: mx,
                             }}
                             />
                         
                     </Grid>
-             
-                
-              
-                
+                             
                 
             </Grid>
+            <div className="err-field">Negative number not allowed</div>
 
             <Grid container>
 

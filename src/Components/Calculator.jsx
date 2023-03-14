@@ -3,7 +3,7 @@ import InputArea from './InputArea';
 import GraphArea from "./GraphArea"
 
 function Calculator() {
-  const [monthlyInvestment, setMonthlyInvestment] = useState(5000);
+  const [monthlyInvestment, setMonthlyInvestment] = useState(500);
   function changeMonthlyInvestment(val){
     if (val<0){
       setMonthlyInvestment(500)
@@ -14,7 +14,7 @@ function Calculator() {
     }
     else setMonthlyInvestment(val);
   }
-  const [investmentPeriod, setInvestmentPeriod] = useState(15);
+  const [investmentPeriod, setInvestmentPeriod] = useState(1);
   function changeInvestmentPeriod(val){
     if (val<0){
       setInvestmentPeriod(1)
@@ -25,7 +25,7 @@ function Calculator() {
     }
     else setInvestmentPeriod(val);
   }
-  const [rateOfReturn, setRateOfReturn] = useState(15);
+  const [rateOfReturn, setRateOfReturn] = useState(1);
   function changeRateOfReturn(val){
     if (val<0){
       setRateOfReturn(1)
@@ -36,7 +36,7 @@ function Calculator() {
     }
     else setRateOfReturn(val);
   }
-  const [delay, setDelay] = useState(10);
+  const [delay, setDelay] = useState(1);
   function changeDelay(val){
     if (val<0){
       setDelay(1)
