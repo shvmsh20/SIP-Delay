@@ -60,7 +60,7 @@ function toIndianRupees(sum){
   return sum.toString().replace(/\D/g, "").replace(/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/g, "$1,");
 }
 return (
-    <div className='graph'>
+    <div className='graphArea'>
       <p className='graph-text'>After {ip} years, you will have<br/>
       <span className='totalamount'>₹ {toIndianRupees(Result2)}</span>
       <br/>That's <span className='potentialamount'>₹ {toIndianRupees(Result1)}</span> as potential capital gains <br/> on your investment of 
