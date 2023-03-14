@@ -200,8 +200,31 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
     };
 
     const handleInputChange = (event) => {
+        
         setValue(event.target.value === '' ? '' : Number(event.target.value));
+        // if(val===''){
+        //   console.log("Empty");
+        //   return;
+        // }
+        // let val = event.target.value;
+        // if(val==='-'){
+        //   console.log("No negative values allowed");
+        //   return;
+        // }
+        // val = Number(val);
+        // console.log(typeof val);
+        // console.log(val);
+        // setValue(val);
+        // console.log(value);
     };
+
+    const handleBlur = () => {
+      if (value < mn) {
+        setValue(mn)
+      } else if (value > mx) {
+        setValue(mx);
+      }
+    }
 
 
  
@@ -227,7 +250,9 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
                             value={value}
                             size="small"
                             onChange={handleInputChange}
+                            onBlur={handleBlur}
                             inputProps={{
+                                type: "number",
                                 step: 1,
                                 min: mn,
                                 max: mx,
@@ -254,6 +279,7 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
                     step={steps}
                     marks={labelArr[index]}
                     value={typeof value === 'number' ? value : 0}
+                    //value = {value}
                     onChange={handleSliderChange}
                     aria-labelledby="input-slider"
                     />

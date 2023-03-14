@@ -74,7 +74,7 @@ return (
             <YAxis width={110}>
             <Label angle={270} position='left' offset={-1}
             value="Amount (Rs.)"
-            style={{ textAnchor: 'monthlyInvestmentddle', fontSize: '100%', fill: 'rgba(0, 0, 0, 0.56)' }}></Label>
+            style={{ textAnchor: 'middle', fontSize: '100%', fill: 'rgba(0, 0, 0, 0.56)' }}></Label>
             </YAxis>
             <Tooltip cursor={false}  />
             <Bar dataKey="Amount" fill = '#5E73EB' />
