@@ -67,7 +67,7 @@ return (
       <br/>That's <span className='potentialamount'>₹ {toIndianRupees(amountWithoutDelay)}</span> as potential capital gains <br/> on your investment of 
       <span className='delay'> ₹ {toIndianRupees(monthlyInvestment)}</span></p>
       
-    <ResponsiveContainer height="40%" width="80%" aspect={1.2} >
+    <ResponsiveContainer height="40%" width="80%" aspect={1.3} >
      
         <BarChart  className="bar-graph" data = {Array} width={200} max-height = {200}>
             <XAxis dataKey="name" fill='#5E73EB'/>
