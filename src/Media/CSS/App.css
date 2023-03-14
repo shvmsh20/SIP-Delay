@@ -14,7 +14,17 @@
 .side-bar{
   flex-basis: 20%;
   background-color: #526FE4;
+  
 }
+/* .side-bar{
+  background: #526FE4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 225px;
+  height: 100%;
+  padding: 20px 0;
+} */
 
 .main{
   flex-basis: 80%;
