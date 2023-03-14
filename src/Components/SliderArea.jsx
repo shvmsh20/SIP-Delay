@@ -189,7 +189,7 @@ const titleArr = ["Monthly Investment (Rs.)", "Investment Period (in years)",
   }
   
   const Input2 = styled(MuiInput)`
-    width: 80px;
+    width: 60px;
   `;
 
   
@@ -202,6 +202,7 @@ function SliderArea({index, mn, mx, value, setValue}){
     const handleInputChange = (event) => {
         setValue(event.target.value === '' ? '' : Number(event.target.value));
     };
+
 
  
   return (
@@ -238,14 +239,12 @@ function SliderArea({index, mn, mx, value, setValue}){
 
                 <Grid item xs>
                     <Slider
-
                     aria-label="Custom marks"
-                    defaultValue={mn}
+                    defaultValue={value}
                     getAriaValueText={valuetext}
                     min={mn}
                     max={mx}
                     marks={labelArr[index]}
-                    
                     value={typeof value === 'number' ? value : 0}
                     onChange={handleSliderChange}
                     aria-labelledby="input-slider"
