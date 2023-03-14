@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import InputArea from './InputArea';
-import Graph from "./Graph"
+import GraphArea from "./GraphArea"
 
 function Calculator() {
-  const [mi, setMi] = useState(6200);
+  const [mi, setMi] = useState(5000);
   function changeMi(val){
     setMi(val);
   }
@@ -15,7 +15,7 @@ function Calculator() {
   function changeRor(val){
     setRor(val);
   }
-  const [delay, setDelay] = useState(60);
+  const [delay, setDelay] = useState(10);
   function changeDelay(val){
     setDelay(val);
   }
@@ -28,10 +28,11 @@ function Calculator() {
       <h5 className='info'>It tells you how much wealth you can create by
       making monthly investment</h5>
       <div className='container'>
+
         <InputArea mi={mi} changeMi={changeMi} ip={ip} changeIp={changeIp}
           ror={ror} changeRor={changeRor} delay={delay} changeDelay={changeDelay}
         />
-        <Graph mi={mi} ip={ip} ror={ror} delay={delay}/>
+        <GraphArea mi={mi} ip={ip} ror={ror} delay={delay}/>
       </div>
       
     </div>

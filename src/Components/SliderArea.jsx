@@ -193,7 +193,7 @@ const titleArr = ["Monthly Investment (Rs.)", "Investment Period (in years)",
   `;
 
   
-function SliderArea({index, mn, mx, value, setValue}){
+function SliderArea({index, mn, mx, steps, value, setValue}){
 
     const handleSliderChange = (event, newValue) => {
         setValue(newValue);
@@ -210,28 +210,35 @@ function SliderArea({index, mn, mx, value, setValue}){
     <div className='slider-area'>
         <Box sx={{ width: 500 }}>
     
-      
-            <Grid className="demo" container>
-                <Grid item>
-                    <Typography gutterBottom>
-                    {titleArr[index]}
-                    </Typography>
-                </Grid>
 
-                <Grid item>
-                
-                <Input2  
-                        value={value}
-                        size="small"
-                        onChange={handleInputChange}
-                        inputProps={{
-                            step: 1,
-                            min: mn,
-                            max: mx,
-                        }}
-                        />
+            <Grid className="grid" container>
+              
+                <Grid item className='grid-item1'>
+                      <Typography gutterBottom>
+                      {titleArr[index]}
+                      </Typography>
+                  </Grid>
+             
+
+              
+                  <Grid item className='grid-item2'>
                     
-                </Grid>
+                    <Input2  
+                            value={value}
+                            size="small"
+                            onChange={handleInputChange}
+                            inputProps={{
+                                step: 1,
+                                min: mn,
+                                max: mx,
+                            }}
+                            />
+                        
+                    </Grid>
+             
+                
+              
+                
                 
             </Grid>
 
@@ -244,6 +251,7 @@ function SliderArea({index, mn, mx, value, setValue}){
                     getAriaValueText={valuetext}
                     min={mn}
                     max={mx}
+                    step={steps}
                     marks={labelArr[index]}
                     value={typeof value === 'number' ? value : 0}
                     onChange={handleSliderChange}
