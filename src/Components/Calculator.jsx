@@ -5,19 +5,47 @@ import GraphArea from "./GraphArea"
 function Calculator() {
   const [monthlyInvestment, setMonthlyInvestment] = useState(5000);
   function changeMonthlyInvestment(val){
-    setMonthlyInvestment(val);
+    if (val<0){
+      setMonthlyInvestment(500)
+    }
+    else if( val > 10000)
+    {
+      setMonthlyInvestment(10000)
+    }
+    else setMonthlyInvestment(val);
   }
   const [investmentPeriod, setInvestmentPeriod] = useState(15);
   function changeInvestmentPeriod(val){
-    setInvestmentPeriod(val);
+    if (val<0){
+      setInvestmentPeriod(1)
+    }
+    else if( val > 30)
+    {
+      setInvestmentPeriod(30)
+    }
+    else setInvestmentPeriod(val);
   }
   const [rateOfReturn, setRateOfReturn] = useState(15);
   function changeRateOfReturn(val){
-    setRateOfReturn(val);
+    if (val<0){
+      setRateOfReturn(1)
+    }
+    else if( val > 30)
+    {
+      setRateOfReturn(30)
+    }
+    else setRateOfReturn(val);
   }
   const [delay, setDelay] = useState(10);
   function changeDelay(val){
-    setDelay(val);
+    if (val<0){
+      setDelay(1)
+    }
+    else if( val > 120)
+    {
+      setDelay(120)
+    }
+    else setDelay(val);
   }
   return (
     <div className='calculator'>

@@ -200,11 +200,17 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
     };
 
     const handleInputChange = (event) => {
-        setValue(event.target.value === '' ? '' : Number(event.target.value));
+      setValue(event.target.value === '' ? '' : Number(event.target.value));
     };
 
+    const handleBlur = () => {
+      if (value < mn) {
+        setValue(mn)
+      } else if (value > mx) {
+        setValue(mx);
+      }
+    }
 
- 
   return (
 
     <div className='slider-area'>
@@ -218,16 +224,15 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
                       {titleArr[index]}
                       </Typography>
                   </Grid>
-             
-
-              
                   <Grid item className='grid-item2'>
                     
                     <Input2  
                             value={value}
                             size="small"
+                            onBlur={handleBlur}
                             onChange={handleInputChange}
                             inputProps={{
+                                type: 'number',
                                 step: 1,
                                 min: mn,
                                 max: mx,
