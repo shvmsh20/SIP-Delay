@@ -3,17 +3,17 @@ import InputArea from './InputArea';
 import GraphArea from "./GraphArea"
 
 function Calculator() {
-  const [mi, setMi] = useState(5000);
-  function changeMi(val){
-    setMi(val);
+  const [monthlyInvestment, setMonthlyInvestment] = useState(5000);
+  function changeMonthlyInvestment(val){
+    setMonthlyInvestment(val);
   }
-  const [ip, setIp] = useState(15);
-  function changeIp(val){
-    setIp(val);
+  const [investmentPeriod, setInvestmentPeriod] = useState(15);
+  function changeInvestmentPeriod(val){
+    setInvestmentPeriod(val);
   }
-  const [ror, setRor] = useState(15);
-  function changeRor(val){
-    setRor(val);
+  const [rateOfReturn, setRateOfReturn] = useState(15);
+  function changeRateOfReturn(val){
+    setRateOfReturn(val);
   }
   const [delay, setDelay] = useState(10);
   function changeDelay(val){
@@ -29,10 +29,10 @@ function Calculator() {
       making monthly investment</h5>
       <div className='container'>
 
-        <InputArea mi={mi} changeMi={changeMi} ip={ip} changeIp={changeIp}
-          ror={ror} changeRor={changeRor} delay={delay} changeDelay={changeDelay}
+        <InputArea monthlyInvestment={monthlyInvestment} changeMonthlyInvestment={changeMonthlyInvestment} investmentPeriod={investmentPeriod} changeInvestmentPeriod={changeInvestmentPeriod}
+          rateOfReturn={rateOfReturn} changeRateOfReturn={changeRateOfReturn} delay={delay} changeDelay={changeDelay}
         />
-        <GraphArea mi={mi} ip={ip} ror={ror} delay={delay}/>
+        <GraphArea monthlyInvestment={monthlyInvestment} investmentPeriod={investmentPeriod} rateOfReturn={rateOfReturn} delay={delay}/>
       </div>
       
     </div>
