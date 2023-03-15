@@ -204,23 +204,33 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
 
     const handleInputChange = (event) => {
       
-      const val = event.target.value;
-      
+      let val = event.target.value;
       if(val.startsWith('-')){
-        setInputVal(val);
         const errField = document.getElementsByClassName("err-field")[index];
         errField.style.display = "block";
         setTimeout(()=>{
           errField.style.display = "none";
-        }, 1500)
-        return;
-      }
-      if(val<mn){
+        }, 1500);
         setInputVal(val);
+        setValue(mn);
         return;
       }
+      
+
+      if(Number(val)<mn){
+        setInputVal(val);
+        setValue(mn);
+        return;
+      }
+
+      if(Number(val)>mx){
+        setInputVal(val);
+        setValue(mx);
+        return;
+      }
+
       setInputVal(val);
-      setValue(val === '' ? '' : Number(val));
+      setValue(val === '' ? mn : Number(val));
       
     };
 
@@ -239,9 +249,12 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
       if (val < mn) {
         setValue(mn);
         setInputVal(mn);
-      } else if (val > mx) {
+        return;
+      }
+      if (val > mx) {
         setValue(mx);
         setInputVal(mx);
+        return;
       }
       
     }
@@ -273,6 +286,7 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
                                 step: steps,
                                 min: mn,
                                 max: mx,
+                                type:"number"
                             }}
                             />
                         
@@ -293,7 +307,7 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
                     max={mx}
                     step={steps}
                     marks={labelArr[index]}
-                    value={typeof value === 'number' ? value : 0}
+                    value={value}
                     onChange={handleSliderChange}
                     aria-labelledby="input-slider"
                     />
